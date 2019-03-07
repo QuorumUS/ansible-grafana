@@ -13,7 +13,7 @@ grafana_instance: "{{ ansible_fqdn | default(ansible_host) | default(inventory_h
 grafana_logs_dir: "/var/log/grafana"
 grafana_data_dir: "/var/lib/grafana"
 
-grafana_address: "0.0.0.0"
+grafana_address: "better-monitoring.quorum.us"
 grafana_port: 3000
 # To enable the use of ports below 1024 for unprivileged processes linux needs to set CAP_NET_BIND_SERVICE.
 # This has some security implications, and should be a conscious choice.
@@ -41,7 +41,13 @@ grafana_server:
 # Security
 grafana_security:
   admin_user: admin
-  admin_password: ""
+  admin_password: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+    35636261633231323164363862306463653762643363663965353461323138336536376336623530
+    3665626331316135653362343765333630333637626437630a653435383330306466386332323732
+    33356266363233313461373634366336393366366539643661653363373763646366636432376439
+    3066336634353735390a333834396637353634623937353238323935306566623336656632383239
+    3530
 #  secret_key: ""
 #  login_remember_days: 7
 #  cookie_username: grafana_user
