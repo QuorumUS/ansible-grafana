@@ -21,7 +21,9 @@ grafana_port: 3000
 grafana_cap_net_bind_service: false
 
 # External Grafana address. Variable maps to "root_url" in grafana server section
-grafana_url: "http://{{ grafana_address }}:{{ grafana_port }}"
+# grafana_url: "http://{{ grafana_address }}:{{ grafana_port }}"
+grafana_fqdn: better-monitoring.quorum.us
+grafana_url: "http://{{ grafana_fqdn }}:{{ grafana_port }}"
 grafana_api_url: "{{ grafana_url }}"
 grafana_domain: "{{ ansible_fqdn | default(ansible_host) | default('localhost') }}"
 
@@ -164,11 +166,12 @@ grafana_analytics: {}
 #  google_analytics_ua_id: ""
 
 # Set this for mail notifications
-grafana_smtp: {}
-#  host:
-#  user:
-#  password:
-#  from_address:
+grafana_smtp:
+  host: "localhost:25"
+  from_address: admin@grafana.quorum.us
+  from_name: Quorum Grafana Admin
+  # user:
+  # password:
 
 # Enable grafana alerting mechanism
 grafana_alerting:
@@ -209,7 +212,7 @@ grafana_image_storage: {}
 #######
 # Plugins from https://grafana.com/plugins
 grafana_plugins: []
-#  - raintank-worldping-app
+  - raintank-worldping-app
 
 # Dashboards from https://grafana.com/dashboards
 grafana_dashboards: []
@@ -227,11 +230,11 @@ grafana_dashboards_dir: "dashboards"
 
 # Alert notification channels to configure
 grafana_alert_notifications: []
-#   - name: "Email Alert"
-#     type: "email"
-#     isDefault: true
-#     settings:
-#       addresses: "example@example.com"
+  - name: "Email Alert"
+    type: "email"
+    isDefault: true
+    settings:
+      addresses: "khoa@quorum.us"
 
 # Datasources to configure
 grafana_datasources: []
