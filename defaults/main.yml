@@ -211,8 +211,11 @@ grafana_image_storage: {}
 
 #######
 # Plugins from https://grafana.com/plugins
-grafana_plugins: []
+grafana_plugins:
   - raintank-worldping-app
+  - grafana-piechart-panel
+  - grafana-clock-panel
+  - mtanda-google-calendar-datasource
 
 # Dashboards from https://grafana.com/dashboards
 grafana_dashboards: []
@@ -229,7 +232,7 @@ grafana_dashboards: []
 grafana_dashboards_dir: "dashboards"
 
 # Alert notification channels to configure
-grafana_alert_notifications: []
+grafana_alert_notifications:
   - name: "Email Alert"
     type: "email"
     isDefault: true
