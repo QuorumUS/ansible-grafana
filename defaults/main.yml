@@ -106,7 +106,6 @@ grafana_auth:
     auth_url: https://github.com/login/oauth/authorize
     token_url: https://github.com/login/oauth/access_token
     api_url: https://api.github.com/user
-    allowed_organizations: QuorumUS
 #  disable_login_form: false
 #  disable_signout_menu: false
 #  anonymous:
