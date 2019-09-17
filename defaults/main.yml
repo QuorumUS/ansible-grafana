@@ -130,14 +130,10 @@ grafana_auth:
       31653164626435336263396565656461633263383865613137376637316638356665366133613538
       6130663236663136350a333264316464613038613666383432343230353664343637623263643934
       61336431313038303530356639373161663035666163373966316138336339633032
-    scopes:
-      - https://www.googleapis.com/auth/userinfo.profile
-      - https://www.googleapis.com/auth/userinfo.email
+    scopes: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email"
     auth_url: https://accounts.google.com/o/oauth2/auth
     token_url: https://accounts.google.com/o/oauth2/token
-    allowed_domains:
-      - quorum.us
-      - better-monitoring.quorum.us
+    allowed_domains: "quorum.us better-monitoring.quorum.us"
     allow_sign_up: true
 #  disable_login_form: false
 #  oauth_auto_login: false
