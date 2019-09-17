@@ -23,7 +23,7 @@ grafana_cap_net_bind_service: false
 # External Grafana address. Variable maps to "root_url" in grafana server section
 # grafana_url: "http://{{ grafana_address }}:{{ grafana_port }}"
 grafana_fqdn: better-monitoring.quorum.us
-grafana_url: "http://{{ grafana_fqdn }}:{{ grafana_port }}"
+grafana_url: "https://{{ grafana_fqdn }}:{{ grafana_port }}"
 grafana_api_url: "{{ grafana_url }}"
 grafana_domain: "{{ ansible_fqdn | default(ansible_host) | default('localhost') }}"
 
