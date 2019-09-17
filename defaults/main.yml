@@ -30,11 +30,11 @@ grafana_domain: "{{ ansible_fqdn | default(ansible_host) | default('localhost') 
 # Additional options for grafana "server" section
 # This section WILL omit options for: http_addr, http_port, domain, and root_url, as those settings are set by variables listed before
 grafana_server:
-  protocol: http
+  protocol: https
   enforce_domain: false
   socket: ""
-  cert_key: ""
-  cert_file: ""
+  cert_key: /etc/grafana/grafana.key
+  cert_file: /etc/grafana/grafana.crt
   enable_gzip: false
   static_root_path: public
   router_logging: false
