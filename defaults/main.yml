@@ -33,8 +33,8 @@ grafana_server:
   protocol: https
   enforce_domain: false
   socket: ""
-  cert_key: /etc/grafana/grafana.key
-  cert_file: /etc/grafana/grafana.crt
+  cert_key: /etc/grafana/quorum_us.key
+  cert_file: /etc/grafana/quorum-ssl-bundle.crt
   enable_gzip: false
   static_root_path: public
   router_logging: false
