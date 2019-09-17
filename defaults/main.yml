@@ -271,12 +271,7 @@ grafana_dashboards: []
 grafana_dashboards_dir: "dashboards"
 
 # Alert notification channels to configure
-grafana_alert_notifications:
-  - name: "Email Alert"
-    type: "email"
-    isDefault: true
-    settings:
-      addresses: "khoa@quorum.us"
+grafana_alert_notifications: []
 
 # Datasources to configure
 grafana_datasources: []
