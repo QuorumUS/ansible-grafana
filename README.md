@@ -12,10 +12,10 @@ Provision and manage [grafana](https://github.com/grafana/grafana) - platform fo
 
 ## Requirements
 
-- Ansible >= 2.5
+- Ansible >= 2.6 (It might work on previous versions, but we cannot guarantee it)
 - libselinux-python on deployer host (only when deployer machine has SELinux)
 - grafana >= 5.1 (for older grafana versions use this role in version 0.10.1 or earlier)
-- rsync if you plan to use grafana provisioning
+- jmespath on deployer machine. If you are using Ansible from a Python virtualenv, install *jmespath* to the same virtualenv via pip.
 
 ## Role Variables
 
@@ -49,6 +49,7 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | `grafana_analytics` | {} | Google [analytics](http://docs.grafana.org/installation/configuration/#analytics) configuration section |
 | `grafana_smtp` | {} | [smtp](http://docs.grafana.org/installation/configuration/#smtp) configuration section |
 | `grafana_alerting` | {} | [alerting](http://docs.grafana.org/installation/configuration/#alerting) configuration section |
+| `grafana_log` | {} | [log](http://docs.grafana.org/installation/configuration/#log) configuration section |
 | `grafana_metrics` | {} | [metrics](http://docs.grafana.org/installation/configuration/#metrics) configuration section |
 | `grafana_tracing` | {} | [tracing](http://docs.grafana.org/installation/configuration/#tracing) configuration section |
 | `grafana_snapshots` | {} | [snapshots](http://docs.grafana.org/installation/configuration/#snapshots) configuration section |
@@ -56,7 +57,8 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | `grafana_dashboards` | [] | List of dashboards which should be imported |
 | `grafana_dashboards_dir` | "dashboards" | Path to a local directory containing dashboards files in `json` format |
 | `grafana_datasources` | [] | List of datasources which should be configured |
-| `grafana_environment` | {} | Optional Environment param for Grafana installation, usefull ie for setting http_proxy |
+| `grafana_environment` | {} | Optional Environment param for Grafana installation, useful ie for setting http_proxy |
+| `grafana_plugins` | [] |  List of Grafana plugins which should be installed |
 
 Datasource example:
 
@@ -98,19 +100,22 @@ Use a custom Grafana Yum repo template example:
 
 ## Supported CPU Architectures
 
-Detection is done automatically and packages are taken from different channels according to CPU architecture:
-
-- amd64 - via official grafana packages ([1](http://docs.grafana.org/installation/debian/#installing-on-debian-ubuntu), [2](http://docs.grafana.org/installation/rpm/))
-- armv6/armv7 and aarch64/arm64 - via [unofficial packages distributed by fg2it](https://github.com/fg2it/grafana-on-raspberry)
+Historically packages were taken from different channels according to CPU architecture. Specifically, armv6/armv7 and aarch64/arm64 packages were via [unofficial packages distributed by fg2it](https://github.com/fg2it/grafana-on-raspberry). Now that Grafana publishes official ARM builds, all packages are taken from the official [Debian/Ubuntu](http://docs.grafana.org/installation/debian/#installing-on-debian-ubuntu) or [RPM](http://docs.grafana.org/installation/rpm/) packages.
 
 ## Example
 
 ### Playbook
 
+Fill in the admin password field with your choice, the Grafana web page won't ask to change it at the first login.
+
 ```yaml
 - hosts: all
   roles:
-    - cloudalchemy.grafana
+    - role: cloudalchemy.grafana
+      vars:
+        grafana_security:
+          admin_user: admin
+          admin_password: enter_your_secure_password
 ```
 
 ### Demo site
@@ -122,7 +127,7 @@ We provide demo site for full monitoring solution based on prometheus and grafan
 The preferred way of locally testing the role is to use Docker and [molecule](https://github.com/metacloud/molecule) (v2.x). You will have to install Docker on your system. See "Get started" for a Docker package suitable to for your system.
 We are using tox to simplify process of testing on multiple ansible versions. To install tox execute:
 ```sh
-pip install tox
+pip3 install tox
 ```
 To run tests on all ansible versions (WARNING: this can take some time)
 ```sh
@@ -130,7 +135,7 @@ tox
 ```
 To run a custom molecule command on custom environment with only default test scenario:
 ```sh
-tox -e py27-ansible25 -- molecule test -s default
+tox -e py35-ansible28 -- molecule test -s default
 ```
 For more information about molecule go to their [docs](http://molecule.readthedocs.io/en/latest/).
 
@@ -138,7 +143,7 @@ If you would like to run tests on remote docker host just specify `DOCKER_HOST` 
 
 ## Travis CI
 
-Combining molecule and travis CI allows us to test how new PRs will behave when used with multiple ansible versions and multiple operating systems. This also allows use to create test scenarios for different role configurations. As a result we have a quite large test matrix (42 parallel role executions in case of [ansible-prometheus](https://github.com/cloudalchemy/ansible-prometheus)) which will take more time than local testing, so please be patient.
+Combining molecule and travis CI allows us to test how new PRs will behave when used with multiple ansible versions and multiple operating systems. This also allows use to create test scenarios for different role configurations. As a result we have a quite large test matrix which will take more time than local testing, so please be patient.
 
 ## Contributing
 
