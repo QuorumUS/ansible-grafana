@@ -4,7 +4,7 @@ galaxy_info:
   description: Grafana - platform for analytics and monitoring
   license: MIT
   company: none
-  min_ansible_version: 2.6
+  min_ansible_version: 2.7
   platforms:
     - name: Ubuntu
       versions:
@@ -17,9 +17,11 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+        - 8
     - name: Fedora
       versions:
         - 30
+        - 31
   galaxy_tags:
   - grafana
   - dashboard

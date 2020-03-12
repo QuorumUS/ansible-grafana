@@ -2,6 +2,47 @@
 
 ## [**Next release**](https://galaxy.ansible.com/cloudalchemy/grafana)
 
+**Fixed bugs:**
+
+- Installation fails due to missing package libfontconfig on Ubuntu 18.04 [\#200](https://github.com/cloudalchemy/ansible-grafana/issues/200)
+
+## [0.16.2](https://galaxy.ansible.com/cloudalchemy/grafana) (2020-03-01)
+**Fixed bugs:**
+
+- Grafana \[session\] has been replaced [\#155](https://github.com/cloudalchemy/ansible-grafana/issues/155)
+
+**Merged pull requests:**
+
+- \[fix\] Update apt-cache before installing dependencies [\#205](https://github.com/cloudalchemy/ansible-grafana/pull/205) ([obitech](https://github.com/obitech))
+- Update README [\#199](https://github.com/cloudalchemy/ansible-grafana/pull/199) ([rnhurt](https://github.com/rnhurt))
+
+## [0.16.1](https://galaxy.ansible.com/cloudalchemy/grafana) (2020-01-13)
+**Merged pull requests:**
+
+- Use fileglob for registering local dashboard files [\#197](https://github.com/cloudalchemy/ansible-grafana/pull/197) ([paulfantom](https://github.com/paulfantom))
+- :robot: sync with cloudalchemy/skeleton \(SHA: 69fc5be8\): Merge pull request \#4 from cloudalchemy/travis\_fix [\#196](https://github.com/cloudalchemy/ansible-grafana/pull/196) ([cloudalchemybot](https://github.com/cloudalchemybot))
+- \[REPO SYNC\] use latest available python [\#194](https://github.com/cloudalchemy/ansible-grafana/pull/194) ([cloudalchemybot](https://github.com/cloudalchemybot))
+- \[REPO SYNC\] remove IRC link [\#192](https://github.com/cloudalchemy/ansible-grafana/pull/192) ([cloudalchemybot](https://github.com/cloudalchemybot))
+- \[REPO SYNC\] add declarative label sync; add autolabelling PRs [\#189](https://github.com/cloudalchemy/ansible-grafana/pull/189) ([cloudalchemybot](https://github.com/cloudalchemybot))
+- \[REPO SYNC\] molecule: use CI images from quay.io instead of dockerhub [\#187](https://github.com/cloudalchemy/ansible-grafana/pull/187) ([cloudalchemybot](https://github.com/cloudalchemybot))
+- \[REPO SYNC\] Update releaser.sh [\#186](https://github.com/cloudalchemy/ansible-grafana/pull/186) ([cloudalchemybot](https://github.com/cloudalchemybot))
+- Adding the ability to manage \[panels\] session [\#185](https://github.com/cloudalchemy/ansible-grafana/pull/185) ([bengoa](https://github.com/bengoa))
+
+## [0.16.0](https://galaxy.ansible.com/cloudalchemy/grafana) (2019-10-31)
+**Closed issues:**
+
+- Release of a new version ? [\#178](https://github.com/cloudalchemy/ansible-grafana/issues/178)
+- Failed to load LDAP config file when using Jinja templated integer variable [\#175](https://github.com/cloudalchemy/ansible-grafana/issues/175)
+
+**Merged pull requests:**
+
+- AWS Cloudwatch Data Source [\#184](https://github.com/cloudalchemy/ansible-grafana/pull/184) ([bengoa](https://github.com/bengoa))
+- Add missing provisioning directories [\#183](https://github.com/cloudalchemy/ansible-grafana/pull/183) ([gjulianm](https://github.com/gjulianm))
+- Database, user and password attributes for grafana\_datasource \(API\) [\#182](https://github.com/cloudalchemy/ansible-grafana/pull/182) ([bengoa](https://github.com/bengoa))
+- templates: ensure port is of int type [\#180](https://github.com/cloudalchemy/ansible-grafana/pull/180) ([paulfantom](https://github.com/paulfantom))
+- \[REPO SYNC\] add support for CentOS8 [\#179](https://github.com/cloudalchemy/ansible-grafana/pull/179) ([cloudalchemybot](https://github.com/cloudalchemybot))
+
+## [0.15.0](https://galaxy.ansible.com/cloudalchemy/grafana) (2019-10-10)
 **Closed issues:**
 
 - Add new auth configuration options [\#165](https://github.com/cloudalchemy/ansible-grafana/issues/165)
@@ -404,13 +445,13 @@
 - Old [\#1](https://github.com/cloudalchemy/ansible-grafana/pull/1) ([paulfantom](https://github.com/paulfantom))
 
 ## [0.4.0](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-10-16)
-## [0.3.2](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-27)
 ## [0.3.3](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-27)
+## [0.3.2](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-27)
 ## [0.3.1](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-27)
 ## [0.3.0](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-21)
-## [0.1.3](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-13)
-## [0.2.0](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-13)
 ## [0.2.1](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-13)
+## [0.2.0](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-13)
+## [0.1.3](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-07-13)
 ## [0.1.2](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-06-14)
 ## [0.1.1](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-06-14)
 ## [0.1.0](https://galaxy.ansible.com/cloudalchemy/grafana) (2017-06-05)
